@@ -60,7 +60,7 @@ export class ScheduleList {
   alertFavoriteExists() {
     this.popup.alert({
       title: "Oops",
-      template: "That session has been favorited already.",
+      template: "That session has been favorited already."
     });
   }
 

@@ -3,7 +3,7 @@ import {SessionDetail} from '../session-detail/session-detail';
 import {DataService} from '../service/data';
 
 @Page({
-  templateUrl: 'app/speaker-detail/speaker-detail.html',
+  templateUrl: 'app/speaker-detail/speaker-detail.html'
 })
 export class SpeakerDetail {
   constructor(nav: NavController, navParams: NavParams, dataService: DataService) {
@@ -15,10 +15,7 @@ export class SpeakerDetail {
     let speakerList = this.dataService.getSpeakers();
 
     this.speaker = speakerList.find( (v) => {
-      if(v.name.toLowerCase().indexOf(speakerName.toLowerCase()) >= 0) {
-        return true;
-      }
-      return false;
+      return v.name.toLowerCase().indexOf(speakerName.toLowerCase()) >= 0;
     });
   }
 

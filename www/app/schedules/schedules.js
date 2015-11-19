@@ -53,10 +53,8 @@ export class Schedules {
     var talks = [];
     this.sessionsForTheDay.forEach((session) => {
       var matched = session.talks.filter((v) => {
-        if(v.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0) {
-          return true;
-        }
-        return false;
+        return v.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0;
+
       });
       if (matched.length > 0) {
         session.talks = matched;

@@ -6,25 +6,27 @@ import {DataService} from '../service/data';
 })
 export class FilterSchedules {
   constructor(dataService: DataService) {
-    this.categories = dataService.getCategories();
     this.dataService = dataService;
   }
 
   onInit() {
-    // On Init reset the filters back to the last thing the user had
-    this.categories.forEach((category) => {
-      category.filterToApply = category.showFilter;
-    });
+    this.categories = this.dataService.getCategories();
+    if (this.categories) {
+      // On Init reset the filters back to the last thing the user had
+      this.categories.map(category => {
+        category.filterToApply = category.showFilter;
+      });
+    }
   }
 
   resetFilters() {
-    this.categories.forEach((category) => {
+    this.categories.map(category => {
       category.filterToApply = true;
     });
   }
 
   applyFilters() {
-    this.categories.forEach((category) => {
+    this.categories.map(category => {
       category.showFilter = category.filterToApply;
     });
 

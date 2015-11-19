@@ -68,8 +68,8 @@ export class DataService {
     var categories = this.getCategories() || [],
         showFilter = true;
 
-    categories.forEach((category) => {
-      if(category.name == sessionCategory) {
+    categories.map(category => {
+      if (category.name == sessionCategory) {
         showFilter = category.showFilter;
       }
     });
